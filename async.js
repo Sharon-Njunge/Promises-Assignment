@@ -11,7 +11,7 @@ async function writemessage(message, delayTime) {
 // Write an asynchronous function that fetches and logs the data for each user ID one by one, in sequence.
 const userIds = [1001, 1002, 1003, 1004];
 
-function getUserInformation(id) {
+function getUserData(id) {
 
 
  return new Promise((resolve, reject) => {
@@ -22,10 +22,10 @@ function getUserInformation(id) {
  }, 1000);
  });
 }
-async function logUserInformation() {
+async function logUserData() {
  for (const userId of userIds) {
  try {
- const userInformation = await getUserInformation(userId);
+ const userInformation = await getUserData(userId);
  console.log(`User ID ${userId}: ${userInformation.name}`);
  }
  catch (error) {
@@ -34,7 +34,7 @@ async function logUserInformation() {
  
 }
 }
-logUserInformation()
+logUserData()
 
 
 // You have an asynchronous function performTask() that returns a Promise.
@@ -92,7 +92,7 @@ function unstableTask(taskName, failureProbability) {
     }
     });
     }
-    
+
     async function executeWithRetry(taskName, retries, failureProbability) {
     for (let attempt = 5; attempt => retries; attempt++) {
     try {
